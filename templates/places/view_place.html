@@ -1,0 +1,17 @@
+{% extends "places/base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+    <h2>{{ title }}</h2>
+    <ul>
+        <li>Id: {{ place.id }}</li>
+        <li>Name: {{ place.name }}</li>
+        <li>Description:
+            <p style="margin: 1em 2cm;">{{ place.description }}</p>
+        </li>
+        <li>URL: <a href="/places/{{ place.url }}/">{{ place.url }}</a></li>
+        <li>Creation date: {{ place.creation_date }}</li>
+        <li>Number of views: {{ place.nr_views }}</li>
+    </ul>
+    <p style="margin-left: 1em;"><a href="/places">Main</a></p>
+{% endblock %}

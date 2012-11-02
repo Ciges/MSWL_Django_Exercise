@@ -1,0 +1,26 @@
+{% extends "places/base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+    <h2>{{ title }}</h2>
+    {% if places_list %}
+        <table>
+            <tr>
+                <th>Place name</th>
+                <th>URL</th>
+                <th><a href="/places/">Creation date</a></th>
+                <th><a href="/places/orderbyviews">Views</a></th>
+            </tr>
+            {% for place in places_list %}
+            <tr>
+                <td><a href="/places/{{ place.id }}">{{ place.name }}</a></td>
+                <td><a href="/places/{{ place.url }}">{{ place.url }}</a></td>
+                <td>{{ place.creation_date }}</td>
+                <td align="right">{{ place.nr_views }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No places are available.</p>
+    {% endif %}
+{% endblock %}
